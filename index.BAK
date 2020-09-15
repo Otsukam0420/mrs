@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/login-layout}">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+	<div layout:fragment="content">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container">
+						<div style="max-width:400px;margin:0 auto;">
+						<!-- OVERVIEW -->
+								<div class="header">
+									<p class="lead">ログインを行ってください。</p>
+									<p th:if="${param.error}">Error!</p>
+								</div>
+								<form th:action="@{/login}" method="POST" class="form-auth-small">
+									<div class="form-group">
+										<label for="username" class="control-label sr-only">ログインID</label>
+										<input type="text" class="form-control" name="username" id="username" value="aaaa" placeholder="ログインID">
+									</div>
+									<div class="form-group">
+										<label for="password" class="control-label sr-only">パスワード</label>
+										<input type="password" class="form-control" id="password" name="password" value="demo" placeholder="パスワード">
+									</div>
+									<button type="submit" class="btn btn-primary btn-lg btn-block">ログイン</button>
+									<div class="pt-3">
+										<span class="helper-text"><a href="#">パスワードを忘れた場合はこちら</a></span>
+									</div>
+								</form>
+						<!-- END OVERVIEW -->
+						</div>
+				</div>
+			</div>
+			<!-- END MAIN CONTENT -->
+	</div>
+</body>
+</html>
