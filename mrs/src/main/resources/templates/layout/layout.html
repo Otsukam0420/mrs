@@ -1,0 +1,115 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<!-- jQuery UI required by datepicker editable -->
+	<link th:href="@{/plugins/jquery-ui/jquery-ui.min.css}" rel="stylesheet" type="text/css" />
+	
+	<!-- JQVMap css -->
+	<link th:href="@{/plugins/jqvmap/jqvmap.min.css}" rel="stylesheet" type="text/css" />
+	
+	<!-- Bootstrap Tour css -->
+	<link th:href="@{/plugins/bootstrap-tour/bootstrap-tour-standalone.min.css}" rel="stylesheet" type="text/css" />
+	
+	<!-- App css -->
+	<link th:href="@{/css/bootstrap-custom.min.css}" rel="stylesheet" type="text/css" />
+	<link th:href="@{/css/app.min.css}" rel="stylesheet" type="text/css" />
+	<link th:href="@{/css/app-custom.css}" rel="stylesheet" type="text/css" />
+	
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+	
+	<!-- Favicon -->
+	<link rel="shortcut icon" th:href="@{/images/favicon.png}">
+	
+	<title>会議室予約システム</title>
+</head>
+<body>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+	    <nav class="navbar navbar-expand fixed-top pt-2 pb-2">
+	      <div class="navbar-brand d-none d-lg-block">
+	      	<span class="text-white">会議室予約システム</span>
+	      </div>
+	      <div class="container-fluid">
+	        <button id="tour-fullwidth" type="button" class="btn btn-default btn-toggle-fullwidth"><i class="ti-menu"></i></button>
+	      </div>
+	    </nav>
+		<!-- END NAVBAR -->
+		
+		<!-- LEFT SIDEBAR -->
+		<div id="sidebar-nav" class="sidebar">
+			<div class="sidebar-scroll">
+				<nav>
+					<ul class="nav">
+						<li><a th:href="@{/mypage}" class="active"><i class="ti-home"></i> <span>マイページ</span></a></li>
+						<li><a th:href="@{/rooms}" class=""><i class="fa fa-calendar"></i> <span>会議室予約</span></a></li>
+						<li><a th:href="@{/loginForm}" class=""><i class="fa fa-sign-out"></i> <span>ログアウト</span></a></li>
+					</ul>
+			        <button type="button" class="btn-toggle-minified" title="Toggle Minified Menu"><i class="ti-arrows-horizontal"></i></button>
+				</nav>
+			</div>
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<div layout:fragment="content" th:remove="tag"></div>
+		</div>
+		<!-- END MAIN -->
+		<div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright">&copy; 2020 xxxxxx</a>. All Rights Reserved.</p>
+			</div>
+		</footer>
+	</div>
+	<!-- END WRAPPER -->
+	
+  <!-- Vendor -->
+  <script src="js/vendor.min.js"></script>
+
+  <!-- Plugins -->
+  <script th:src="@{/plugins/jquery-jeditable/jquery.jeditable.min.js}"></script>
+  <script th:src="@{/plugins/jquery.maskedinput/jquery.maskedinput.js}"></script>
+  <script th:src="@{/plugins/jquery-jeditable/jquery.jeditable.masked.min.js}"></script>
+  <script th:src="@{/plugins/jquery-ui/jquery-ui.min.js}"></script> <!-- required by datepicker plugin -->
+  <script th:src="@{/plugins/jquery-jeditable/jquery.jeditable.datepicker.min.js}"></script>
+  <script th:src="@{/plugins/jqvmap/jquery.vmap.min.js}"></script>
+  <script th:src="@{/plugins/jqvmap/maps/jquery.vmap.world.js}"></script>
+  <script th:src="@{/plugins/jqvmap/maps/jquery.vmap.usa.js}"></script>
+  <script th:src="@{/plugins/flot/jquery.canvaswrapper.js}"></script>
+  <script th:src="@{/plugins/flot/jquery.colorhelpers.js}"></script>
+  <script th:src="@{/plugins/flot/jquery.flot.js}"></script>
+  <script th:src="@{/plugins/flot/jquery.flot.saturated.js}"></script>
+  <script th:src="@{/plugins/flot/jquery.flot.browser.js}"></script>
+  <script th:src="@{/plugins/flot/jquery.flot.drawSeries.js}"></script>
+  <script th:src="@{/plugins/flot/jquery.flot.uiConstants.js}"></script>
+  <script th:src="@{/plugins/flot/jquery.flot.resize.js}"></script>
+  <script th:src="@{/plugins/flot/jquery.flot.legend.js}"></script>
+  <script th:src="@{/plugins/flot/jquery.flot.hover.js}"></script>
+  <script th:src="@{/plugins/flot/jquery.flot.time.js}"></script>
+  <script th:src="@{/plugins/jquery.flot.tooltip/jquery.flot.tooltip.min.js}"></script>
+  <script th:src="@{/plugins/justgage/raphael.min.js}"></script>
+  <script th:src="@{/plugins/justgage/justgage.min.js}"></script>
+  <script th:src="@{/plugins/datatables.net/jquery.dataTables.min.js}"></script>
+  <script th:src="@{/plugins/datatables.net-bs4/dataTables.bootstrap4.min.js}"></script>
+  <script th:src="@{/plugins/jquery.appear/jquery.appear.js}"></script>
+  <script th:src="@{/plugins/jquery-sparkline/jquery.sparkline.min.js}"></script>
+  <script th:src="@{/plugins/jquery-ui/jquery-ui.min.js}"></script>
+  <script th:src="@{/plugins/bootstrap-tour/bootstrap-tour-standalone.js}"></script>
+
+  <!-- Init -->
+  <script th:src="@{/js/pages/dashboard.init.js}"></script>
+  <script th:src="@{/js/pages/ui-dragdroppanel.init.min.js}"></script>
+
+  <!-- App -->
+  <script th:src="@{/js/app.min.js}"></script>
+
+</body>
+</html>

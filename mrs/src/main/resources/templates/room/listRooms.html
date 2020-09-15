@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+<meta charset="UTF-8" />
+	<title th:text="|${#temporals.format(date, 'yyyy/M/d')}の会議室|">2016/5/20の会議室</title>
+</head>
+<body>
+	<div layout:fragment="content">
+
+		<!-- MAIN CONTENT -->
+		<div class="main-content">
+		
+	        <div class="content-heading">
+	          <div class="heading-left">
+	            <h1 class="page-title">会議室一覧</h1>
+	          </div>
+	        </div>
+		
+			<a th:href="@{'/rooms/' + ${date.minusDays(1)}}">&lt; 前日</a>
+			<span th:text="|${#temporals.format(date, 'yyyy/M/d')}の会議室|">2016/5/20の会議室</span>
+			<a th:href="@{'/rooms/' + ${date.plusDays(1)}}">翌日 &gt;</a>
+			
+			<table class="table table-bordered">
+				<thead class="thead-light">
+					<tr><th class="border"></th><th class="border">会議室名</th></tr>
+				</thead>
+				<tbody>
+					<tr th:each="room: ${rooms}">
+						<td class="border"></td>
+						<td class="border">
+							<a th:href="@{'/reservations/' + ${date} + '/' + ${room.meetingRoom.roomId}}"
+							   th:text="${room.meetingRoom.roomName}"></a>						
+						</td>
+					</tr>
+				</tbody>
+			</table>			
+		</div>	
+		<!-- END MAIN CONTENT -->
+
+	</div>
+</body>
+</html>
